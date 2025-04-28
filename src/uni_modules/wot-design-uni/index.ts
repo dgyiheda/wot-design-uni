@@ -1,12 +1,20 @@
-/*
- * @Author: weisheng
- * @Date: 2021-12-21 14:22:03
- * @LastEditTime: 2025-03-25 14:01:43
- * @LastEditors: weisheng
- * @Description:
- * @FilePath: /wot-design-uni/src/uni_modules/wot-design-uni/index.ts
- * 记得注释
- */
+import type { App } from 'vue'
+import * as components from './components'
+
+export const install = function (app: App) {
+  Object.keys(components).forEach((key) => {
+    const component = components[key as keyof typeof components]
+    if (component.install) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      app.use(component)
+    }
+  })
+
+  return app
+}
+
+export * from './components'
 
 export { useToast } from './components/wd-toast'
 export { useMessage } from './components/wd-message-box'
@@ -22,3 +30,7 @@ export * as clickOut from './components/common/clickoutside'
 
 export * from './locale'
 export type { ConfigProviderThemeVars } from './components/wd-config-provider/types'
+
+export default {
+  install
+}

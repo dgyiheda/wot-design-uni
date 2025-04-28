@@ -1,12 +1,15 @@
 {
-  "name": "wot-design-uni",
+  "name": "@yhdfe-plugins/wot-design-uni",
   "version": "1.8.0",
   "license": "MIT",
+  "main": "./index.mjs",
+  "module": "./index.mjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/Moonofweisheng/wot-design-uni.git"
   },
   "scripts": {
+    "build:pack": "pnpm clear && gulp -f ./gulpfile.js",
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
     "dev:app-ios": "uni -p app-ios",
@@ -125,6 +128,9 @@
     "esno": "^4.8.0",
     "fast-glob": "^3.3.3",
     "git-cz": "^4.9.0",
+    "gulp": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^6.0.1",
     "husky": "^8.0.3",
     "inquirer": "^12.3.2",
     "jest": "27.0.4",
@@ -139,7 +145,7 @@
     "query-string": "^8.1.0",
     "rimraf": "^4.4.0",
     "rollup-plugin-visualizer": "^5.9.0",
-    "sass": "^1.59.3",
+    "sass": "^1.77.8",
     "standard-version": "^9.5.0",
     "ts-jest": "27.0.4",
     "typescript": "^5.5.4",
@@ -183,7 +189,10 @@
     }
   },
   "files": [
-    "lib"
+    "dist",
+    "typings",
+    "CHANGELOG.md",
+    "README.md"
   ],
   "packageManager": "pnpm@9.2.0"
 }
